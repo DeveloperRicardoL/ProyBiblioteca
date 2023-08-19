@@ -8,13 +8,13 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
     
-    private String url;//"jdbc:mysql://Localhost/proyectobiblioteca";
-    private String username;//"root";
-    private String password;//"";
+    private String url;
+    private String username;
+    private String password;
     
     private final String obj = "com.mysql.jdbc.Driver"; //creo un objeto para almacenar la ruta del Driver de la conexion
     
-    Connection con = null; //llamo a la clase Connection y creo un objeto
+    Connection con = null;
     
     public Conexion(){
         try {
