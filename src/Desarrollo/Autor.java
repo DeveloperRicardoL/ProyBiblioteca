@@ -133,7 +133,7 @@ public class Autor {
                 contenido.addRow(vector);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error en la consulta de Socio" + "\n" + e);
+            JOptionPane.showMessageDialog(null, "Error en la consulta de Autor" + "\n" + e);
         } finally{
             con.desconectar();
         }
@@ -141,12 +141,12 @@ public class Autor {
     }
     public DefaultComboBoxModel LlenarCombo(){
         DefaultComboBoxModel conten = new DefaultComboBoxModel();
-        String muestro = "select Nombre, idAutor from autor order by Nombre";
+        String muestro = "select idAutor from autor";
         try {
             Ps = con.conectar().prepareStatement(muestro);
             Rs = Ps.executeQuery();
             while (Rs.next()) {
-                conten.addElement(Rs.getString(1) + ", Id: " + Rs.getInt(2));
+                conten.addElement(Rs.getInt(1));
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "no puede mostrar los autores" + "\n" + e);
@@ -154,5 +154,82 @@ public class Autor {
             con.desconectar();
         }
         return conten;
+    }
+    
+    public DefaultTableModel TitulosAutores(){
+        String [] titulos = {"Id de Autor", "Nombre", "País", "Tipo de Autor"};
+        String [][] registros = {};
+        contenido = new DefaultTableModel(registros, titulos);
+        return contenido;
+    }
+    public DefaultTableModel AutoresRegistrados(){
+        String consulta = "select idAutor, Nombre, Pais, TipoDeAutor from autor order by Nombre";
+        try {
+            Ps = con.conectar().prepareStatement(consulta);
+            Rs = Ps.executeQuery();
+            if (contenido.getRowCount() > 0) {
+                TitulosAutores();
+            }
+            while(Rs.next()){
+                String NombrePais = SwPais(Rs.getInt(3)); 
+                String TipoAutor = SwTpAutores(Rs.getInt(4));
+                Object[] vector = {Rs.getInt(1), Rs.getString(2), NombrePais, TipoAutor};
+                contenido.addRow(vector);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error en la consulta de Autores" + "\n" + e);
+        }
+        return contenido;
+    }
+    private String SwPais(int NroPais){
+        String NomPais = null;
+        switch (NroPais) {
+            case 1:
+                NomPais ="ARGENTINA";
+                break;
+            case 2:
+                NomPais ="FRANCIA";
+                break;
+            case 3:
+                NomPais ="BRASIL";
+                break;
+            case 4:
+                NomPais ="URUGUAY";
+                break;
+            case 5:
+                NomPais ="PARAGUAY";
+                break;
+            case 6:
+                NomPais ="BOLIVIA";
+                break;
+            case 7:
+                NomPais ="ESPAÑA";
+                break;
+            case 8:
+                NomPais ="VENEZUELA";
+                break;
+            case 9:
+                NomPais ="DINAMARCA";
+                break;
+            case 10:
+                NomPais ="INGLATERRA";
+                break;
+        }
+        return NomPais;
+    }
+    private String SwTpAutores(int TipoAut){
+        String Autor=null;
+        switch (TipoAut) {
+            case 1:
+                Autor = "DIRECTOR";
+                break;
+            case 2:
+                Autor = "INTERPRETE";
+                break;
+            case 3:
+                Autor = "ESCRITOR";
+                break;
+        }
+        return Autor;
     }
 }

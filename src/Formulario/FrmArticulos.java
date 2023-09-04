@@ -79,16 +79,17 @@ private char Boton;
         PanelCarga.setBackground(new java.awt.Color(0, 54, 204));
 
         LblTipoDeArticulo.setBackground(new java.awt.Color(0, 0, 135));
-        LblTipoDeArticulo.setText("TIPO DE ARTICULO");
+        LblTipoDeArticulo.setText("TIPO DE ARTICULO (*)");
 
         LblNom.setBackground(new java.awt.Color(0, 0, 135));
-        LblNom.setText("NOMBRE");
+        LblNom.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LblNom.setText("NOMBRE (*)");
 
         LblAnio.setBackground(new java.awt.Color(0, 0, 135));
-        LblAnio.setText("AÑO");
+        LblAnio.setText("AÑO (*)");
 
         LblDescripcion.setBackground(new java.awt.Color(0, 0, 135));
-        LblDescripcion.setText("DESCRIPCION");
+        LblDescripcion.setText("DESCRIPCION (*)");
 
         LblCantPag.setBackground(new java.awt.Color(0, 0, 135));
         LblCantPag.setText("CANTIDAD DE PAGINAS");
@@ -100,7 +101,7 @@ private char Boton;
         LblDuracion.setText("TIEMPO DE DURACION");
 
         LblCantCopias.setBackground(new java.awt.Color(0, 0, 135));
-        LblCantCopias.setText("CANTIDAD DE COPIAS");
+        LblCantCopias.setText("CANTIDAD DE COPIAS (*)");
 
         TxtCantPag.setBackground(new java.awt.Color(0, 54, 204));
         TxtCantPag.setForeground(new java.awt.Color(255, 255, 255));
@@ -160,7 +161,7 @@ private char Boton;
         CbTipoDeArticulo.setColorDeBorde(new java.awt.Color(255, 255, 255));
 
         LblCodArticulo.setBackground(new java.awt.Color(0, 0, 135));
-        LblCodArticulo.setText("CODIGO DEL ARTICULO");
+        LblCodArticulo.setText("CODIGO DEL ARTICULO (*)");
 
         TxtCodArticulo.setBackground(new java.awt.Color(0, 54, 204));
         TxtCodArticulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,7 +173,7 @@ private char Boton;
         });
 
         LblAutor.setBackground(new java.awt.Color(0, 0, 135));
-        LblAutor.setText("AUTOR");
+        LblAutor.setText("AUTOR (*)");
 
         CbAutor.setBackground(new java.awt.Color(0, 0, 135));
         CbAutor.setForeground(new java.awt.Color(255, 255, 255));
@@ -445,7 +446,7 @@ private char Boton;
     private void TxtNomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNomKeyTyped
         Validacion.SoloLetrasyNros(evt);
         if (this.TxtNom.getText().length() > 44) {
-            evt.consume();//esta funcion sirve para que no pueda seguir tipiando y no se exceda de la longitud que le permitimos
+            evt.consume();
             JOptionPane.showMessageDialog(null, "excede la longitud de caracteres del Nombre");
         }
     }//GEN-LAST:event_TxtNomKeyTyped
@@ -453,7 +454,7 @@ private char Boton;
     private void TxtCantPagKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCantPagKeyTyped
         Validacion.SoloNros(evt);
         if (this.TxtCantPag.getText().length() > 3) {
-            evt.consume();//esta funcion sirve para que no pueda seguir tipiando y no se exceda de la longitud que le permitimos
+            evt.consume();
             JOptionPane.showMessageDialog(null, "excede la longitud de caracteres de la cantidad de páginas");
         }
     }//GEN-LAST:event_TxtCantPagKeyTyped
@@ -461,7 +462,7 @@ private char Boton;
     private void TxtCantCancioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCantCancioKeyTyped
         Validacion.SoloNros(evt);
         if (this.TxtCantCancio.getText().length() > 3) {
-            evt.consume();//esta funcion sirve para que no pueda seguir tipiando y no se exceda de la longitud que le permitimos
+            evt.consume();
             JOptionPane.showMessageDialog(null, "excede la longitud de caracteres de la cantidad de canciones");
         }
     }//GEN-LAST:event_TxtCantCancioKeyTyped
@@ -469,7 +470,7 @@ private char Boton;
     private void TxtCantCopiasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCantCopiasKeyTyped
         Validacion.SoloNros(evt);
         if (this.TxtCantCopias.getText().length() > 3) {
-            evt.consume();//esta funcion sirve para que no pueda seguir tipiando y no se exceda de la longitud que le permitimos
+            evt.consume();
             JOptionPane.showMessageDialog(null, "excede la longitud de caracteres de la cantidad de copias");
         }
     }//GEN-LAST:event_TxtCantCopiasKeyTyped
@@ -538,6 +539,7 @@ private char Boton;
                 } else {
                     boolean existe = BuscaryEnviarALasCajas();
                     if (existe == true) {
+                        this.BtnModificar.setEnabled(false);
                         this.PanelConfirAnular.setVisible(true);
                     }
                 }
@@ -549,23 +551,24 @@ private char Boton;
     private void TxtCodEliModiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCodEliModiKeyTyped
         Validacion.SoloNros(evt);
         if (this.TxtCodArticulo.getText().length() > 7) {
-            evt.consume();//esta funcion sirve para que no pueda seguir tipiando y no se exceda de la longitud que le permitimos
+            evt.consume();
             JOptionPane.showMessageDialog(null, "excede la longitud de caracteres del Código de Articulo");
         }
     }//GEN-LAST:event_TxtCodEliModiKeyTyped
 
     private void TablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMouseClicked
-        int col = 3;
-        int fila = this.Tabla.getSelectedRow();
-        this.TxtCodEliModi.setText(this.Tabla.getValueAt(fila, col).toString());
-        this.BtnAceptar.setVisible(true);
-        this.BtnCancelar.setVisible(true);
+//        int col = 3;
+//        int fila = this.Tabla.getSelectedRow();
+//        this.TxtCodEliModi.setText(this.Tabla.getValueAt(fila, col).toString());
+//        this.BtnAceptar.setVisible(true);
+//        this.BtnCancelar.setVisible(true);
     }//GEN-LAST:event_TablaMouseClicked
 
     private void BtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConfirmarActionPerformed
         AltaModif();
         this.PanelConfirAnular.setVisible(false);
         this.BtnCarga.setEnabled(true);
+        this.BtnModificar.setEnabled(true);
         this.BtnEliminar.setEnabled(true);
     }//GEN-LAST:event_BtnConfirmarActionPerformed
 
@@ -582,6 +585,8 @@ private char Boton;
         int col = 3;
         int fila = this.Tabla.getSelectedRow();
         this.TxtCodEliModi.setText(this.Tabla.getValueAt(fila, col).toString());
+        this.BtnAceptar.setVisible(true);
+        this.BtnCancelar.setVisible(true);
     }//GEN-LAST:event_TablaMousePressed
 
     private void TxtNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNomActionPerformed
@@ -592,6 +597,7 @@ private char Boton;
         this.PanelElimModi.setVisible(false);
         this.PanelConfirAnular.setVisible(false);
         this.BtnCarga.setEnabled(true);
+        this.BtnModificar.setEnabled(true);
         this.BtnEliminar.setEnabled(true);
         Limpiar();
     }//GEN-LAST:event_BtnAnularActionPerformed
@@ -664,6 +670,7 @@ private char Boton;
     }
     private void DeshabilitarPanelBuscar(){
         this.PanelElimModi.setVisible(false);
+        this.PanelConfirAnular.setVisible(false);
         //this.TxtCodEliModi.setVisible(false);
         //this.PanelTabla.setVisible(false);
         this.TxtCodArticulo.setEnabled(true);
@@ -715,8 +722,9 @@ private char Boton;
                     break;
             }
             int CantCop = Integer.parseInt(this.TxtCantCopias.getText());
-            String AutorForm = this.CbAutor.getSelectedItem().toString();
-            int AutorSql = Integer.parseInt(AutorForm.replaceAll("[^0-9]", ""));
+            //String AutorForm = this.CbAutor.getSelectedItem().toString();
+            //int AutorSql = Integer.parseInt(AutorForm.replaceAll("[^0-9]", ""));
+            int AutorSql = Integer.parseInt(this.CbAutor.getSelectedItem().toString());
             art = new Articulos(CodArt, TipoArt, Nom, anioSql, Desc, CantPag, CantCancio, Duracion, CantCop, AutorSql);
             if (Boton == 'M') {
                 art.Modificar();
@@ -748,7 +756,7 @@ private char Boton;
             this.SpHora.setValue(h);
             this.SpMinutos.setValue(m);
             this.TxtCantCopias.setText(String.valueOf(art.getCantCopias()));
-            this.CbAutor.setSelectedItem(art.getNomAutor());
+            this.CbAutor.setSelectedItem(art.getIdAutor());
            // java.time.LocalTime Hora = new LocalTime();
           //  this.SpHora.setValue(art.getDuracion());
         } else {

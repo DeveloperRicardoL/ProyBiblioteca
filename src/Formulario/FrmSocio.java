@@ -98,19 +98,19 @@ private char Boton;
         PanelCarga.setBackground(new java.awt.Color(0, 54, 204));
 
         LblNombre.setBackground(new java.awt.Color(0, 0, 135));
-        LblNombre.setText("NOMBRE");
+        LblNombre.setText("NOMBRE (*)");
 
         LblApellido.setBackground(new java.awt.Color(0, 0, 135));
-        LblApellido.setText("PRIMER APELLIDO");
+        LblApellido.setText("PRIMER APELLIDO (*)");
 
         LblDni.setBackground(new java.awt.Color(0, 0, 135));
-        LblDni.setText("DNI");
+        LblDni.setText("DNI (*)");
 
         LblDireccion.setBackground(new java.awt.Color(0, 0, 135));
-        LblDireccion.setText("DIRECCION");
+        LblDireccion.setText("DIRECCION (*)");
 
         LblTelefono.setBackground(new java.awt.Color(0, 0, 135));
-        LblTelefono.setText("TELEFONO");
+        LblTelefono.setText("TELEFONO (*)");
 
         TxtNombre.setBackground(new java.awt.Color(0, 54, 204));
         TxtNombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -507,7 +507,7 @@ private char Boton;
             s = new Socio(Nom,Ape,Dni,Direc,Tel);
             if (Boton == 'M') {
                 s.Modificar();
-                Boton = 'L';//le coloco cualquier caracter para limpiar
+                Boton = 'L';
             } else {
                 s.Alta();
             }

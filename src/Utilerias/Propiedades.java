@@ -14,7 +14,6 @@ public class Propiedades {
         InputStream entrada = null;
         try {
             entrada =  new FileInputStream("resources/config.properties");
-            System.out.println("entrada: " + entrada);
             if (entrada == null) {
                 System.out.println("No se encontró el archivo config.properties");
             }else{

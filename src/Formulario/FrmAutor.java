@@ -8,8 +8,8 @@ Autor a;
 int idAutorEle = 0;
     public FrmAutor() {
         initComponents();
-        this.CbTipoDeAutor.setModel(this.CargarComboBoxTipoAutor()); //lleno el combo tipo de autor
-        this.CbPais.setModel(this.CargaComboBoxPais()); //lleno el combo pais
+        this.CbTipoDeAutor.setModel(this.CargarComboBoxTipoAutor());
+        this.CbPais.setModel(this.CargaComboBoxPais());
         this.PanelBuscar.setVisible(false);
         this.setTitle("CATALOGO DE AUTORES");
         this.BtnEliminar.setEnabled(false);
@@ -125,16 +125,16 @@ int idAutorEle = 0;
         PanelCarga.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LblNom.setBackground(new java.awt.Color(0, 0, 135));
-        LblNom.setText("NOMBRE");
-        PanelCarga.add(LblNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 120, 20));
+        LblNom.setText("NOMBRE (*)");
+        PanelCarga.add(LblNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 140, 20));
 
         LblPais.setBackground(new java.awt.Color(0, 0, 135));
-        LblPais.setText("PAIS");
-        PanelCarga.add(LblPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 120, 20));
+        LblPais.setText("PAIS (*)");
+        PanelCarga.add(LblPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 140, 20));
 
         LblTipoDeAutor.setBackground(new java.awt.Color(0, 0, 135));
-        LblTipoDeAutor.setText("TIPO DE AUTOR");
-        PanelCarga.add(LblTipoDeAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 130, 20));
+        LblTipoDeAutor.setText("TIPO DE AUTOR (*)");
+        PanelCarga.add(LblTipoDeAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 140, 20));
 
         TxtNom.setBackground(new java.awt.Color(0, 54, 204));
         TxtNom.setBorder(null);
@@ -259,7 +259,7 @@ int idAutorEle = 0;
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
         int confirmacion = JOptionPane.showConfirmDialog(null, "Esta seguro que desea eliminar el dato seleccionado?"); //el jOp.... me devuelve un int(0 = Si, 1= No y 2 = Cancelar), almaceno el int en una variable
-        if(confirmacion == 0){ // y pregunto si mi variable es = a 0, entonces ejecuto el metodo Baja de mi clase Autor, de lo contrario no hago nada
+        if(confirmacion == 0){
             if (idAutorEle == 0) {
                 JOptionPane.showMessageDialog(null, "No selecciono ningún autor");
             } else {
@@ -323,7 +323,6 @@ int idAutorEle = 0;
         int colu = 0;
         int fila = this.Tabla.getSelectedRow();
         int BuscarxId = Integer.parseInt(this.Tabla.getValueAt(fila, colu).toString());
-        System.out.println("mouse click " + BuscarxId);
         RetornarValores(BuscarxId);
     }//GEN-LAST:event_TablaMouseClicked
 

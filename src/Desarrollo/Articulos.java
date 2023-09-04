@@ -176,12 +176,12 @@ public class Articulos {
                 JOptionPane.showMessageDialog(null, "Registro modificado");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error");
+            JOptionPane.showMessageDialog(null, "Error " + e);
         }
     }
     public boolean BuscarPorCod(int Cod){
         boolean resp = false;
-        String buscar = "select art.CodArticulo, art.TipoDeArticulo, art.Nombre, art.Anio, art.Descripcion, art.CantPaginas, art.CantCanciones, art.Duracion, art.CantCopias, a.Nombre from articulos as art inner join autor as a on art.Autor_idAutor = a.idAutor where CodArticulo = ?";
+        String buscar = "select art.CodArticulo, art.TipoDeArticulo, art.Nombre, art.Anio, art.Descripcion, art.CantPaginas, art.CantCanciones, art.Duracion, art.CantCopias, a.idAutor from articulos as art inner join autor as a on art.Autor_idAutor = a.idAutor where CodArticulo = ?";
         try {
             Ps = con.conectar().prepareStatement(buscar);
             Ps.setInt(1, Cod);
@@ -197,7 +197,7 @@ public class Articulos {
                 this.setCantCancio(Rs.getInt(7));
                 this.setDuracion(Rs.getTime(8));
                 this.setCantCopias(Rs.getInt(9));
-                this.setNomAutor(Rs.getString(10));
+                this.setIdAutor(Rs.getInt(10));
             }else{
                 JOptionPane.showMessageDialog(null, "No se encontró el código ingresado");
             }
@@ -245,10 +245,11 @@ public class Articulos {
         return conten;
     }
     public int RetornarIdArticulo(String ArticuloEleg){
-        String ArticuloABuscar = "select CodArticulo from articulos where Nombre = '"+ ArticuloEleg +"'";
+        String ArticuloABuscar = "select CodArticulo from articulos where Nombre = ?";
         int IdADevolver = 0;
         try {
             Ps = con.conectar().prepareStatement(ArticuloABuscar);
+            Ps.setString(1, ArticuloEleg);
             Rs = Ps.executeQuery();
             if (Rs.next()) {
                 IdADevolver = Rs.getInt(1);

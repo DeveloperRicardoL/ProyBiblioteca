@@ -61,6 +61,14 @@
             <Property name="text" type="java.lang.String" value="CONSULTAS"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="OpcMostrarAutores">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mostrar Autores"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OpcMostrarAutoresActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="OpcMostrarSoc">
               <Properties>
                 <Property name="mnemonic" type="int" value="116"/>

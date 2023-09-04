@@ -115,8 +115,8 @@ public class Socio {
     public void Modificar(){
         String modifica = "UPDATE socio SET Nombre = '"+ this.getNom() +"',PrimerApellido = '"+ this.getPrimerApe() +"',Dni = '"+ this.getDni() +"',Direccion = '"+ this.getDirec() +"',Telefono = '"+ this.getTel() +"' WHERE Dni = '"+ this.getDni() +"';";
         try {    
-            Ps = con.conectar().prepareStatement(modifica);//use agroalimentaria
-            int x = Ps.executeUpdate();// esto es el rayito
+            Ps = con.conectar().prepareStatement(modifica);
+            int x = Ps.executeUpdate();
             if (x > 0) {
                 JOptionPane.showMessageDialog(null, "SOCIO MODIFICADO");
             }

@@ -19,6 +19,7 @@ public class FrmMenu extends javax.swing.JFrame {
         OpcPrestamo = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
+        OpcMostrarAutores = new javax.swing.JMenuItem();
         OpcMostrarSoc = new javax.swing.JMenuItem();
         OpcMostrarArticulo = new javax.swing.JMenuItem();
         OpcMostrarPrestamo = new javax.swing.JMenuItem();
@@ -92,6 +93,14 @@ public class FrmMenu extends javax.swing.JFrame {
 
         editMenu.setMnemonic('e');
         editMenu.setText("CONSULTAS");
+
+        OpcMostrarAutores.setText("Mostrar Autores");
+        OpcMostrarAutores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpcMostrarAutoresActionPerformed(evt);
+            }
+        });
+        editMenu.add(OpcMostrarAutores);
 
         OpcMostrarSoc.setMnemonic('t');
         OpcMostrarSoc.setText("Mostrar Socios");
@@ -336,6 +345,12 @@ public class FrmMenu extends javax.swing.JFrame {
         v.show();
     }//GEN-LAST:event_OpcPrestamosHastafechaActionPerformed
 
+    private void OpcMostrarAutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpcMostrarAutoresActionPerformed
+        FrmMostrarAutor autor = new FrmMostrarAutor();
+        Escritorio.add(autor);
+        autor.show();
+    }//GEN-LAST:event_OpcMostrarAutoresActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarraMenu;
@@ -351,6 +366,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem OpcCantCopYTpArt;
     private javax.swing.JMenuItem OpcCantPorArt;
     private javax.swing.JMenuItem OpcMostrarArticulo;
+    private javax.swing.JMenuItem OpcMostrarAutores;
     private javax.swing.JMenuItem OpcMostrarPrestamo;
     private javax.swing.JMenuItem OpcMostrarSoc;
     private javax.swing.JMenuItem OpcPrestamo;

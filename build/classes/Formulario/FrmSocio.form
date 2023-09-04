@@ -171,7 +171,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="87" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="NOMBRE"/>
+            <Property name="text" type="java.lang.String" value="NOMBRE (*)"/>
           </Properties>
         </Component>
         <Component class="org.edisoncor.gui.label.LabelRound" name="LblApellido">
@@ -179,7 +179,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="87" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="PRIMER APELLIDO"/>
+            <Property name="text" type="java.lang.String" value="PRIMER APELLIDO (*)"/>
           </Properties>
         </Component>
         <Component class="org.edisoncor.gui.label.LabelRound" name="LblDni">
@@ -187,7 +187,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="87" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="DNI"/>
+            <Property name="text" type="java.lang.String" value="DNI (*)"/>
           </Properties>
         </Component>
         <Component class="org.edisoncor.gui.label.LabelRound" name="LblDireccion">
@@ -195,7 +195,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="87" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="DIRECCION"/>
+            <Property name="text" type="java.lang.String" value="DIRECCION (*)"/>
           </Properties>
         </Component>
         <Component class="org.edisoncor.gui.label.LabelRound" name="LblTelefono">
@@ -203,7 +203,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="87" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="TELEFONO"/>
+            <Property name="text" type="java.lang.String" value="TELEFONO (*)"/>
           </Properties>
         </Component>
         <Component class="org.edisoncor.gui.textField.TextFieldRound" name="TxtNombre">

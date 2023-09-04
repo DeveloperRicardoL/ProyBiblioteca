@@ -5,12 +5,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 import javax.swing.JOptionPane;
-
 public class Conexion {
     
-    private String url;//"jdbc:mysql://Localhost/proyectobiblioteca";
-    private String username;//"root";
-    private String password;//"";
+    private String url;
+    private String username;
+    private String password;
     
     private final String obj = "com.mysql.jdbc.Driver"; //creo un objeto para almacenar la ruta del Driver de la conexion
     
@@ -30,11 +29,9 @@ public class Conexion {
             JOptionPane.showMessageDialog(null, "Error, no se encontro el driver para la conexión o datos nulos. " + e + JOptionPane.ERROR_MESSAGE);
         }
     }
-    
     public Connection conectar(){
         return con;
     }
-    
     public void desconectar(){
         if (con != null) {
             try {
@@ -43,7 +40,7 @@ public class Conexion {
                 JOptionPane.showMessageDialog(null, "Error al cerrar la conexión" + e);
             }
         }else{
-            JOptionPane.showMessageDialog(null, "No se cerro la conexión");
+            JOptionPane.showMessageDialog(null, "No se cerro la conexión o conexión nula");
         }
     }
 }
